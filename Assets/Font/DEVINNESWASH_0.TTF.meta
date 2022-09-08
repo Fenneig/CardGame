@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8f16e391f2d5d7444942a23b33b041ee
+guid: 7d9bc0b1498fd744889c455a1d8bedc1
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Lovely Eunike Hans
+  fontName: Devinne Swash
   fontNames:
-  - Lovely Eunike Hans
+  - Devinne Swash
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
