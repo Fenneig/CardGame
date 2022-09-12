@@ -31,7 +31,7 @@ namespace UI
             }
         }
 
-        public void ModifyMesh(VertexHelper vh)
+        public override void ModifyMesh(VertexHelper vh)
         {
             if (!IsActive())
                 return;
