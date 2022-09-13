@@ -45,9 +45,4 @@ public class BetterCardRotation : MonoBehaviour
             }
         }
     }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawLine(Camera.main.transform.position, _targetFacePoint.position);
-    }
 }

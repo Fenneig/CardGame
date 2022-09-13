@@ -277,6 +277,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6738750596386197812, guid: cde838fe8062d7844a85491e224654b1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8581642640179887798, guid: cde838fe8062d7844a85491e224654b1,
         type: 3}
       propertyPath: m_RootOrder
@@ -336,6 +341,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpellCard
+      objectReference: {fileID: 0}
+    - target: {fileID: 8581642641927014859, guid: cde838fe8062d7844a85491e224654b1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cde838fe8062d7844a85491e224654b1, type: 3}

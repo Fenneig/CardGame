@@ -1,29 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using UI;
 
-public class Outline8 : ModifiedShadow
+namespace UI
 {
-    public override void ModifyVertices(List<UIVertex> verts)
+    public class Outline8 : ModifiedShadow
     {
-        if (!IsActive())
-            return;
-
-        var neededCapacity = verts.Count * 9;
-        if (verts.Capacity < neededCapacity)
-            verts.Capacity = neededCapacity;
-
-        var original = verts.Count;
-        var count = 0;
-        for (int x = -1; x <= 1; x++)
+        public override void ModifyVertices(List<UIVertex> verts)
         {
-            for (int y = -1; y <= 1; y++)
+            if (!IsActive())
+                return;
+
+            var neededCapacity = verts.Count * 9;
+            if (verts.Capacity < neededCapacity)
+                verts.Capacity = neededCapacity;
+
+            var original = verts.Count;
+            var count = 0;
+            for (int x = -1; x <= 1; x++)
             {
-                if (!(x == 0 && y == 0))
+                for (int y = -1; y <= 1; y++)
                 {
-                    var next = count + original;
-                    ApplyShadow(verts, effectColor, count, next, effectDistance.x * x, effectDistance.y * y);
-                    count = next;
+                    if (!(x == 0 && y == 0))
+                    {
+                        var next = count + original;
+                        ApplyShadow(verts, effectColor, count, next, effectDistance.x * x, effectDistance.y * y);
+                        count = next;
+                    }
                 }
             }
         }
