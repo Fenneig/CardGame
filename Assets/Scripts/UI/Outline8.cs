@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-namespace UI
+namespace CardGame.UI
 {
     public class Outline8 : ModifiedShadow
     {

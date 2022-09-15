@@ -11,31 +11,31 @@ public enum TargetingOptions
     YourCharacters
 }
 
-namespace SOAssets
+namespace CardGame.SOAssets
 {
     [CreateAssetMenu(fileName = "Create", menuName = "Assets/Card")]
     public class CardAsset : ScriptableObject
     {
         [Header("General Info")] [Tooltip("If this is null, it's a neutral card")]
-        public CharacterAsset _characterAsset;
+        public CharacterAsset CharacterAsset;
         [TextArea(2, 3)] 
-        public string _description;
-        public Sprite _cardImage;
-        public int _manaCost;
+        public string Description;
+        public Sprite CardImage;
+        public int ManaCost;
 
         [Header("Creature Info")] [Tooltip("If this parameter equals to 0 that means that this is spell card")]
-        public int _maxHealth;
-        public int _attack;
-        public int _attacksForOneTurn = 1;
-        public bool _taunt;
-        public bool _charge;
-        public string _creatureScriptName;
-        public int _specialCreatureAmount;
+        public int MaxHealth;
+        public int Attack;
+        public int AttacksForOneTurn = 1;
+        public bool Taunt;
+        public bool Charge;
+        public string CreatureScriptName;
+        public int SpecialCreatureAmount;
 
         [Header("SpellInfo")] 
-        public string _spellScriptName;
-        public int _specialSpellAmount;
-        public TargetingOptions _targets;
+        public string SpellScriptName;
+        public int SpecialSpellAmount;
+        public TargetingOptions Targets;
 
     }
 }

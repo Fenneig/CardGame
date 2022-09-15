@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace UI
+namespace CardGame.UI
 {
     public class ListPool<T>
     {

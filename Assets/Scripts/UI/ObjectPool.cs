@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace UI
+namespace CardGame.UI
 {
     public class ObjectPool<T> where T : new()
     {

@@ -302,6 +302,7 @@ GameObject:
   - component: {fileID: 8581642640179887798}
   - component: {fileID: 8581642640823050563}
   - component: {fileID: 8581642640823050562}
+  - component: {fileID: 65476068585311989}
   m_Layer: 0
   m_Name: SpellCard
   m_TagString: Untagged
@@ -354,6 +355,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4, y: 6, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &65476068585311989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8581642640179887799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e6ef5ecc1b1ed14abb24d065772bdd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardAsset: {fileID: 11400000, guid: e0dc2c607d47ad84bbe0ff79a57b2a89, type: 2}
+  PreviewManager: {fileID: 0}
+  NameText: {fileID: 8581642641302404639}
+  ManaCostText: {fileID: 8581642640405458457}
+  DescriptionText: {fileID: 8581642641411260181}
+  HealthText: {fileID: 0}
+  AttackText: {fileID: 0}
+  CardTopRibbonImage: {fileID: 8581642641356669772}
+  CardLowRibbonImage: {fileID: 8581642641429225598}
+  CardGraphicImage: {fileID: 8581642640231390489}
+  CardBodyImage: {fileID: 8581642641141015572}
+  CardFaceFrameImage: {fileID: 8581642642191767498}
+  CardFaceGlowImage: {fileID: 0}
+  CardBackGlowImage: {fileID: 0}
 --- !u!1 &8581642640231390495
 GameObject:
   m_ObjectHideFlags: 0
@@ -1127,7 +1154,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: This is a card discription
+  m_Text: This is a card description
 --- !u!1 &8581642641429225596
 GameObject:
   m_ObjectHideFlags: 0
