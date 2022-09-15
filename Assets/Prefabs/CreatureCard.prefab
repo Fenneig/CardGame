@@ -377,11 +377,11 @@ MonoBehaviour:
     m_MaxSize: 100
     m_Alignment: 4
     m_AlignByGeometry: 1
-    m_RichText: 1
+    m_RichText: 0
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Beast
+  m_Text: Lava elemental
 --- !u!1 &1880110846856300970
 GameObject:
   m_ObjectHideFlags: 0
@@ -1120,13 +1120,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e6ef5ecc1b1ed14abb24d065772bdd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardAsset: {fileID: 11400000, guid: e0dc2c607d47ad84bbe0ff79a57b2a89, type: 2}
+  CardAsset: {fileID: 11400000, guid: 1b6795cb26842354d8c9d2e15c982394, type: 2}
   PreviewManager: {fileID: 0}
   NameText: {fileID: 1880110846744947021}
   ManaCostText: {fileID: 1880110847641893195}
   DescriptionText: {fileID: 1880110846635567175}
-  HealthText: {fileID: 0}
-  AttackText: {fileID: 0}
+  HealthText: {fileID: 7898972145449192830}
+  AttackText: {fileID: 7523446230719048248}
   CardTopRibbonImage: {fileID: 1880110846732080158}
   CardLowRibbonImage: {fileID: 1880110846651152172}
   CardGraphicImage: {fileID: 1880110847824333387}
