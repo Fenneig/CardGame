@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 namespace CardGame.Visual
 {
-
     public class OneCardManager : MonoBehaviour
     {
         public CardAsset CardAsset;
@@ -66,10 +65,8 @@ namespace CardGame.Visual
             if (PreviewManager != null)
             {
                 PreviewManager.CardAsset = CardAsset;
-                PreviewManager.ReadCardFromAsset();
-                
+                PreviewManager.ReadCardFromAsset();                
             }
         }
-
     }
 }

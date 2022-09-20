@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEditor;
+using UnityEngine;
 
 namespace CardGame.Visual
 {
@@ -49,6 +51,11 @@ namespace CardGame.Visual
                     _cardBack.gameObject.SetActive(false);
                 }
             }
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.DrawLine(Camera.main.transform.position, _targetFacePoint.position);
         }
     }
 }
