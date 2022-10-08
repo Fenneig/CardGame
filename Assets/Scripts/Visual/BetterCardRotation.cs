@@ -27,16 +27,19 @@ namespace CardGame.Visual
         {
             //кидаем луч от камеры к точке перед лицом карты, если луч проходит через коллайдер значит карта находится рубашкой "вверх"
             RaycastHit[] hits;
-            hits = Physics.RaycastAll(origin: Camera.main.transform.position,
-                direction: (-Camera.main.transform.position + _targetFacePoint.position).normalized,
-                maxDistance: (-Camera.main.transform.position + _targetFacePoint.position).magnitude);
+            var pointOfView = new Vector3(
+                Camera.main.transform.position.x + _targetFacePoint.position.x,
+                Camera.main.transform.position.y,
+                Camera.main.transform.position.z);
+            hits = Physics.RaycastAll(origin: pointOfView,
+                direction: (-pointOfView + _targetFacePoint.position).normalized,
+                maxDistance: (-pointOfView + _targetFacePoint.position).magnitude);
             bool passedThroughColliderOnCard = false;
             foreach (var hit in hits)
             {
                 if (hit.collider == _collider)
                     passedThroughColliderOnCard = true;
             }
-
             if (passedThroughColliderOnCard != showingBack)
             {
                 showingBack = passedThroughColliderOnCard;
@@ -55,7 +58,10 @@ namespace CardGame.Visual
 
         private void OnDrawGizmos()
         {
-            Gizmos.DrawLine(Camera.main.transform.position, _targetFacePoint.position);
+            var pointOfView = new Vector3(Camera.main.transform.position.x + _targetFacePoint.position.x,
+                Camera.main.transform.position.y,
+                Camera.main.transform.position.z);
+            Gizmos.DrawLine(pointOfView, _targetFacePoint.position);
         }
     }
 }

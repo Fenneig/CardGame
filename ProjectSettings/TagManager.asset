@@ -38,6 +38,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1147696647
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Cards
+    uniqueID: 2007181983
+    locked: 0
+  - name: Creatures
+    uniqueID: 2650204973
+    locked: 0
+  - name: AboveEverything
+    uniqueID: 3032123627
     locked: 0

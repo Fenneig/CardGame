@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Dragging
+namespace CardGame.Dragging
 {
     public abstract class DraggingActions : MonoBehaviour
     {

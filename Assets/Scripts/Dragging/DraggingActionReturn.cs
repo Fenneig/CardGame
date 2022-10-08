@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using DG.Tweening;
+﻿using DG.Tweening;
 using UnityEngine;
 
-namespace Dragging
+namespace CardGame.Dragging
 {
     public class DraggingActionReturn : DraggingActions
     {

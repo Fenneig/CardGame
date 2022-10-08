@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Dragging
+namespace CardGame.Dragging
 {
     [RequireComponent(typeof(DraggingActions))]
     public class DraggableObject : MonoBehaviour
