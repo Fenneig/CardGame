@@ -1,7 +1,10 @@
 fileFormatVersion: 2
 guid: 62c83046e542c5a48b248bf7b1d02b6e
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -7861612341245328740
+    second: upg_bow_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -97,7 +100,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: upg_bow_0
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 60
+        width: 312
+        height: 391
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c92ce3e6a31f5e290800000000000000
+      internalID: -7861612341245328740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
