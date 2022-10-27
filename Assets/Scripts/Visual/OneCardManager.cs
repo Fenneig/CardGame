@@ -6,26 +6,37 @@ namespace CardGame.Visual
 {
     public class OneCardManager : MonoBehaviour
     {
-        public CardAsset CardAsset;
-        public OneCardManager PreviewManager;
-        [Header("Text Component References")] 
-        public Text NameText;
-        public Text ManaCostText;
-        public Text DescriptionText;
-        public Text HealthText;
-        public Text AttackText;
+        [SerializeField] private CardAsset _cardAsset;
+        [SerializeField] private OneCardManager _previewManager;
+
+        [Header("Text Component References")]
+        [SerializeField] private Text _nameText;
+
+        [SerializeField] private Text _manaCostText;
+        [SerializeField] private Text _descriptionText;
+        [SerializeField] private Text _healthText;
+        [SerializeField] private Text _attackText;
+
         [Header("Image References")]
-        public Image CardTopRibbonImage;
-        public Image CardLowRibbonImage;
-        public Image CardGraphicImage;
-        public Image CardBodyImage;
-        public Image CardFaceFrameImage;
-        public Image CardFaceGlowImage;
-        public Image CardBackGlowImage;
+        [SerializeField] private Image _cardTopRibbonImage;
+
+        [SerializeField] private Image _cardLowRibbonImage;
+        [SerializeField] private Image _cardGraphicImage;
+        [SerializeField] private Image _cardBodyImage;
+        [SerializeField] private Image _cardFaceFrameImage;
+        [SerializeField] private Image _cardFaceGlowImage;
+        [SerializeField] private Image _cardBackGlowImage;
+
+        public CardAsset CardAsset
+        {
+            get => _cardAsset;
+            set => _cardAsset = value;
+        }
+
 
         private void Awake()
         {
-            if (CardAsset != null)
+            if (_cardAsset != null)
                 ReadCardFromAsset();
         }
 
@@ -37,35 +48,35 @@ namespace CardGame.Visual
             set
             {
                 _canBePlayedNow = value;
-                CardFaceGlowImage.enabled = value;
+                _cardFaceGlowImage.enabled = value;
             }
         }
 
-        private void ReadCardFromAsset()
+        public void ReadCardFromAsset()
         {
-            if (CardAsset.CharacterAsset != null)
+            if (_cardAsset.CharacterAsset != null)
             {
-                CardBodyImage.color = CardAsset.CharacterAsset.ClassCardTint;
-                CardFaceFrameImage.color = CardAsset.CharacterAsset.ClassCardTint;
-                CardTopRibbonImage.color = CardAsset.CharacterAsset.ClassRibbonsTint;
-                CardLowRibbonImage.color = CardAsset.CharacterAsset.ClassRibbonsTint;
+                _cardBodyImage.color = _cardAsset.CharacterAsset.ClassCardTint;
+                _cardFaceFrameImage.color = _cardAsset.CharacterAsset.ClassCardTint;
+                _cardTopRibbonImage.color = _cardAsset.CharacterAsset.ClassRibbonsTint;
+                _cardLowRibbonImage.color = _cardAsset.CharacterAsset.ClassRibbonsTint;
             }
 
-            NameText.text = CardAsset.name;
-            ManaCostText.text = CardAsset.ManaCost.ToString();
-            DescriptionText.text = CardAsset.Description;
-            CardGraphicImage.sprite = CardAsset.CardImage;
+            _nameText.text = _cardAsset.name;
+            _manaCostText.text = _cardAsset.ManaCost.ToString();
+            _descriptionText.text = _cardAsset.Description;
+            _cardGraphicImage.sprite = _cardAsset.CardImage;
 
-            if (CardAsset.MaxHealth != 0)
+            if (_cardAsset.MaxHealth != 0)
             {
-                AttackText.text = CardAsset.Attack.ToString();
-                HealthText.text = CardAsset.MaxHealth.ToString();
+                _attackText.text = _cardAsset.Attack.ToString();
+                _healthText.text = _cardAsset.MaxHealth.ToString();
             }
 
-            if (PreviewManager != null)
+            if (_previewManager != null)
             {
-                PreviewManager.CardAsset = CardAsset;
-                PreviewManager.ReadCardFromAsset();                
+                _previewManager._cardAsset = _cardAsset;
+                _previewManager.ReadCardFromAsset();
             }
         }
     }

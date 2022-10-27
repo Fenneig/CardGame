@@ -1025,20 +1025,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e6ef5ecc1b1ed14abb24d065772bdd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardAsset: {fileID: 11400000, guid: 1b6795cb26842354d8c9d2e15c982394, type: 2}
-  PreviewManager: {fileID: 0}
-  NameText: {fileID: 1880110848454665656}
-  ManaCostText: {fileID: 1880110847018497470}
-  DescriptionText: {fileID: 1880110848429171890}
-  HealthText: {fileID: 7898972145091117451}
-  AttackText: {fileID: 7523446229266228941}
-  CardTopRibbonImage: {fileID: 1880110848500553963}
-  CardLowRibbonImage: {fileID: 1880110848444791769}
-  CardGraphicImage: {fileID: 1880110847372904126}
-  CardBodyImage: {fileID: 1880110846548197299}
-  CardFaceFrameImage: {fileID: 1880110847598808173}
-  CardFaceGlowImage: {fileID: 4187708699375667673}
-  CardBackGlowImage: {fileID: 0}
+  _cardAsset: {fileID: 0}
+  _previewManager: {fileID: 0}
+  _nameText: {fileID: 1880110848454665656}
+  _manaCostText: {fileID: 1880110847018497470}
+  _descriptionText: {fileID: 1880110848429171890}
+  _healthText: {fileID: 7898972145091117451}
+  _attackText: {fileID: 7523446229266228941}
+  _cardTopRibbonImage: {fileID: 1880110848500553963}
+  _cardLowRibbonImage: {fileID: 1880110848444791769}
+  _cardGraphicImage: {fileID: 1880110847372904126}
+  _cardBodyImage: {fileID: 1880110846548197299}
+  _cardFaceFrameImage: {fileID: 1880110846605384709}
+  _cardFaceGlowImage: {fileID: 0}
+  _cardBackGlowImage: {fileID: 0}
 --- !u!1 &1880110847236005529
 GameObject:
   m_ObjectHideFlags: 0
@@ -1223,7 +1223,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 2c016f709f469bc40beaf382df566847, type: 3}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1683,7 +1683,7 @@ RectTransform:
   m_GameObject: {fileID: 1880110847824333389}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1, y: 1.1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3916805372342358792}
   m_RootOrder: 0
@@ -1721,7 +1721,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 2c016f709f469bc40beaf382df566847, type: 3}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1949,20 +1949,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e6ef5ecc1b1ed14abb24d065772bdd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardAsset: {fileID: 11400000, guid: 1b6795cb26842354d8c9d2e15c982394, type: 2}
-  PreviewManager: {fileID: 7919578269777794386}
-  NameText: {fileID: 1880110846744947021}
-  ManaCostText: {fileID: 1880110847641893195}
-  DescriptionText: {fileID: 1880110846635567175}
-  HealthText: {fileID: 7898972145449192830}
-  AttackText: {fileID: 7523446230719048248}
-  CardTopRibbonImage: {fileID: 1880110846732080158}
-  CardLowRibbonImage: {fileID: 1880110846651152172}
-  CardGraphicImage: {fileID: 1880110847824333387}
-  CardBodyImage: {fileID: 1880110847980073798}
-  CardFaceFrameImage: {fileID: 1880110846962860184}
-  CardFaceGlowImage: {fileID: 4187708697678529836}
-  CardBackGlowImage: {fileID: 0}
+  _cardAsset: {fileID: 0}
+  _previewManager: {fileID: 7919578269777794386}
+  _nameText: {fileID: 1880110846744947021}
+  _manaCostText: {fileID: 1880110847641893195}
+  _descriptionText: {fileID: 1880110846635567175}
+  _healthText: {fileID: 7898972145449192830}
+  _attackText: {fileID: 7523446230719048248}
+  _cardTopRibbonImage: {fileID: 1880110846732080158}
+  _cardLowRibbonImage: {fileID: 1880110846651152172}
+  _cardGraphicImage: {fileID: 1880110847824333387}
+  _cardBodyImage: {fileID: 1880110848054989040}
+  _cardFaceFrameImage: {fileID: 1880110847980073798}
+  _cardFaceGlowImage: {fileID: 4187708697678529836}
+  _cardBackGlowImage: {fileID: 0}
 --- !u!114 &977915115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1977,7 +1977,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _turnThisOffWhenPreviewing: {fileID: 1880110847840848173}
   _targetPosition: {x: 0, y: 2.5, z: 0}
-  _targetScale: 2.5
+  _targetScale: 3.5
   _previewGameObject: {fileID: 1880110847189542160}
   _activateInAwake: 1
 --- !u!1 &1880110847910210433

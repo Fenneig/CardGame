@@ -1126,20 +1126,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e6ef5ecc1b1ed14abb24d065772bdd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardAsset: {fileID: 11400000, guid: 1b6795cb26842354d8c9d2e15c982394, type: 2}
-  PreviewManager: {fileID: 0}
-  NameText: {fileID: 8127756671539248034}
-  ManaCostText: {fileID: 8127756670558448548}
-  DescriptionText: {fileID: 8127756671564741288}
-  HealthText: {fileID: 523015875940016017}
-  AttackText: {fileID: 194867578483357911}
-  CardTopRibbonImage: {fileID: 8127756671484954353}
-  CardLowRibbonImage: {fileID: 8127756671549121987}
-  CardGraphicImage: {fileID: 8127756670459877540}
-  CardBodyImage: {fileID: 8127756671294038441}
-  CardFaceFrameImage: {fileID: 8127756672395088503}
-  CardFaceGlowImage: {fileID: 5819024158965520323}
-  CardBackGlowImage: {fileID: 0}
+  _cardAsset: {fileID: 0}
+  _previewManager: {fileID: 0}
+  _nameText: {fileID: 8127756671539248034}
+  _manaCostText: {fileID: 8127756670558448548}
+  _descriptionText: {fileID: 8127756671564741288}
+  _healthText: {fileID: 523015875940016017}
+  _attackText: {fileID: 194867578483357911}
+  _cardTopRibbonImage: {fileID: 8127756671484954353}
+  _cardLowRibbonImage: {fileID: 8127756671549121987}
+  _cardGraphicImage: {fileID: 8127756670459877540}
+  _cardBodyImage: {fileID: 8127756671294038441}
+  _cardFaceFrameImage: {fileID: 8127756672395088503}
+  _cardFaceGlowImage: {fileID: 0}
+  _cardBackGlowImage: {fileID: 0}
 --- !u!1 &8127756670443363266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,7 +1304,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 2c016f709f469bc40beaf382df566847, type: 3}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2230,7 +2230,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 2c016f709f469bc40beaf382df566847, type: 3}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2326,6 +2326,7 @@ GameObject:
   - component: {fileID: 8127756672084506622}
   - component: {fileID: 8127756671384971274}
   - component: {fileID: 7700286179767096049}
+  - component: {fileID: 6467951025256945202}
   m_Layer: 0
   m_Name: Creature
   m_TagString: Untagged
@@ -2375,10 +2376,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _turnThisOffWhenPreviewing: {fileID: 0}
-  _targetPosition: {x: 2, y: 0, z: 0}
-  _targetScale: 2.5
+  _targetPosition: {x: 10, y: 0, z: 0}
+  _targetScale: 3.5
   _previewGameObject: {fileID: 8127756670374820618}
   _activateInAwake: 1
+--- !u!114 &6467951025256945202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8127756672084506623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b7814597db84a7c919e4859971c8cd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cardAsset: {fileID: 0}
+  _previewManager: {fileID: 521035477949991752}
+  _healthText: {fileID: 523015877455745892}
+  _attackText: {fileID: 194867578912732194}
+  _graphicImage: {fileID: 8127756671901127761}
+  _glowImage: {fileID: 5819024158258273078}
 --- !u!1 &8127756672121916534
 GameObject:
   m_ObjectHideFlags: 0
