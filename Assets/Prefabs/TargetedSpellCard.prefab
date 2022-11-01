@@ -1632,7 +1632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e6ef5ecc1b1ed14abb24d065772bdd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cardAsset: {fileID: 0}
+  _cardAsset: {fileID: 11400000, guid: 912ce312281d34642bd846ec2db3f8fb, type: 2}
   _previewManager: {fileID: 4525239909705428508}
   _nameText: {fileID: 7548483418495508722}
   _manaCostText: {fileID: 7548483417328005364}
