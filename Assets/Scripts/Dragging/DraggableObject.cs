@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using CardGame.Visual;
+using UnityEngine;
 
 namespace CardGame.Dragging
 {
@@ -24,6 +25,7 @@ namespace CardGame.Dragging
             if (!_draggingActions.CanDrag) return;
             
             _isDragging = true;
+            HoverPreview.PreviewsAllowed = false;
             _draggingActions.OnStartDrag();
             _zDisplacement = -Camera.main.transform.position.z + transform.position.z;
             if (_usePointerDisplacement) _pointerDisplacement = -transform.position + MouseInWorldCoords();
@@ -43,8 +45,9 @@ namespace CardGame.Dragging
         private void OnMouseUp()
         {
             if (!_isDragging) return;
-            
+
             _isDragging = false;
+            HoverPreview.PreviewsAllowed = true;
             _draggingActions.OnEndDrag();
         }
 

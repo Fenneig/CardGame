@@ -24,8 +24,8 @@ namespace CardGame.Visual
             }
         }
         
-        private bool _previewsAllowed = true;
-        public bool PreviewsAllowed
+        private static bool _previewsAllowed = true;
+        public static bool PreviewsAllowed
         {
             get => _previewsAllowed;
             set
@@ -41,8 +41,8 @@ namespace CardGame.Visual
         
         
         
-        private readonly Vector3 _vectorOne = Vector3.one;
-        private readonly Vector3 _vectorZero = Vector3.zero;
+        private static readonly Vector3 VectorOne = Vector3.one;
+        private static readonly Vector3 VectorZero = Vector3.zero;
 
         private void Awake()
         {
@@ -72,8 +72,8 @@ namespace CardGame.Visual
             //отключаем если есть что отключать
             if (_turnThisOffWhenPreviewing != null) _turnThisOffWhenPreviewing.SetActive(false);
             //передвегаем в целевую позицию
-            _previewGameObject.transform.localPosition = _vectorZero;
-            _previewGameObject.transform.localScale = _vectorOne;
+            _previewGameObject.transform.localPosition = VectorZero;
+            _previewGameObject.transform.localScale = VectorOne;
 
             _previewGameObject.transform.DOLocalMove(_targetPosition, 1f).SetEase(Ease.OutQuint);
             _previewGameObject.transform.DOScale(_targetScale, 1f).SetEase(Ease.OutQuint);
@@ -82,18 +82,18 @@ namespace CardGame.Visual
         private void StopThisPreview()
         {
             PreviewGameObject.SetActive(false);
-            PreviewGameObject.transform.localScale = _vectorOne;
-            PreviewGameObject.transform.position = _vectorZero;
+            PreviewGameObject.transform.localScale = VectorOne;
+            PreviewGameObject.transform.position = VectorZero;
             if (TurnThisOffWhenPreviewing != null) TurnThisOffWhenPreviewing.SetActive(true);
         }
 
-        private void StopAllPreviews()
+        private static void StopAllPreviews()
         {
             if (_currentlyViewing != null)
             {
                 _currentlyViewing.PreviewGameObject.SetActive(false);
-                _currentlyViewing.PreviewGameObject.transform.localScale = _vectorOne;
-                _currentlyViewing.PreviewGameObject.transform.position = _vectorZero;
+                _currentlyViewing.PreviewGameObject.transform.localScale = VectorOne;
+                _currentlyViewing.PreviewGameObject.transform.position = VectorZero;
                 if (_currentlyViewing.TurnThisOffWhenPreviewing != null) _currentlyViewing.TurnThisOffWhenPreviewing.SetActive(true);
             }
         }
