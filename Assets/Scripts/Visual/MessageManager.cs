@@ -18,10 +18,10 @@ namespace CardGame.Visual
             _messagePanel.SetActive(false);
         }
 
-        public void ShowMessage(string message, float duration) =>
-            StartCoroutine(ShowMessageCoroutine(message, duration));
+        public void ShowMessage(string message, float duration, Command command) =>
+            StartCoroutine(ShowMessageCoroutine(message, duration, command));
 
-        private IEnumerator ShowMessageCoroutine(string message, float duration)
+        private IEnumerator ShowMessageCoroutine(string message, float duration, Command command)
         {
             _messageText.text = message;
             _messagePanel.SetActive(true);
@@ -29,7 +29,7 @@ namespace CardGame.Visual
             yield return new WaitForSeconds(duration);
 
             _messagePanel.SetActive(false);
-            // TODO Command.CommandExecutionComplete();
+            Command.CommandExecutionComplete();
         }
     }
 }

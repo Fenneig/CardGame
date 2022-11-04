@@ -2,8 +2,10 @@
 
 public class SameDistanceChildren : MonoBehaviour
 {
-    public Transform[] _children;
+    [SerializeField] private Transform[] _children;
 
+    public Transform[] Children => _children;
+    
     private void Awake()
     {
         Vector3 firstElementPos = _children[0].transform.position;

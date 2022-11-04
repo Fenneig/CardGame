@@ -7,13 +7,13 @@ namespace CardGame.Commands
         public static Queue<Command> CommandQueue = new Queue<Command>();
         public static bool PlayingQueue = false;
 
-        protected virtual void AddToQueue()
+        public virtual void AddToQueue()
         {
             CommandQueue.Enqueue(this);
             if (!PlayingQueue) PlayCommandFromQueue();
         }
 
-        protected virtual void StartCommandExecution()
+        public virtual void StartCommandExecution()
         {
             /*
               Набор всех комманд которые нужно выполнить (взять карту, разыграть карту, разыграть эффект заклинания и т.д.) 
@@ -40,9 +40,7 @@ namespace CardGame.Commands
         public static bool CardDrawPending()
         {
             foreach (var command in CommandQueue)
-            {
                 if (command is DrawACardCommand) return true;
-            }
 
             return false;
         }

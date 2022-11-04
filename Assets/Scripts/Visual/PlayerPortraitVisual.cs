@@ -1,4 +1,5 @@
 ﻿using CardGame.SOAssets;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +19,12 @@ namespace CardGame.Visual
         [SerializeField] private Image _portraitImage;
         [SerializeField] private Image _portraitBackgroundImage;
 
+        public Text HealthText
+        {
+            get => _healthText;
+            set => _healthText = value;
+        }
+
         public CharacterAsset CharacterAsset
         {
             get => _characterAsset;
@@ -29,7 +36,7 @@ namespace CardGame.Visual
             if (_characterAsset != null) ApplyLookFromAsset();
         }
 
-        private void ApplyLookFromAsset()
+        public void ApplyLookFromAsset()
         {
             _healthText.text = _characterAsset.MaxHealth.ToString();
             _heroPowerIconImage.sprite = _characterAsset.HeroPowerIconImage;
@@ -45,19 +52,17 @@ namespace CardGame.Visual
         {
             if (amount > 0)
             {
-                // TODO DamageEffect.CreateDamageEffect(transform.position, amount);
+               DamageEffect.CreateDamageEffect(transform.position, amount);
                 _healthText.text = healthAfter.ToString();
             }
         }
 
         public void Explode()
         {
-            /* TODO
              Instantiate(GlobalSettings.Instance.ExplosionPrefab, transform.position, Quaternion.identity);
-             Sequence s = DOTween.Sequence();
-             s.PrependInterval(2f);
-             s.OnComplete(() => GlobalSettings.Instance.GameOverCanvas.SetActive(true));
-            */
+             Sequence sequence = DOTween.Sequence();
+             sequence.PrependInterval(2f);
+             sequence.OnComplete(() => GlobalSettings.Instance.GameOverCanvas.SetActive(true));
         }
     }
 }
