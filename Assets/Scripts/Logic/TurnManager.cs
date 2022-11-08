@@ -63,8 +63,10 @@ namespace CardGame.Logic
 
             sequence.Append(Player.Players[0].PlayerArea.Portrait.transform
                 .DOMove(Player.Players[0].PlayerArea.PortraitPosition.position, 1f).SetEase(Ease.InQuad));
-            sequence.Insert(0f, Player.Players[0].PlayerArea.Portrait.transform
-                .DOMove(Player.Players[0].PlayerArea.PortraitPosition.position, 1f).SetEase(Ease.InQuad));
+            
+            sequence.Insert(0, Player.Players[1].PlayerArea.Portrait.transform
+                .DOMove(Player.Players[1].PlayerArea.PortraitPosition.position, 1f).SetEase(Ease.InQuad));
+
             sequence.PrependInterval(3f);
             sequence.OnComplete(() =>
             {
