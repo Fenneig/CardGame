@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 1043997702}
   - component: {fileID: 8233860704455421368}
   - component: {fileID: 4717316675663503313}
-  - component: {fileID: 1043997704}
-  - component: {fileID: 8775730513401092729}
   m_Layer: 0
   m_Name: Target
   m_TagString: Untagged
@@ -117,36 +115,6 @@ MonoBehaviour:
   _targetScale: 2.5
   _previewGameObject: {fileID: 8366346149448432746}
   _activateInAwake: 1
---- !u!114 &1043997704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1043997700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8eced377a1464dcb8fbab967f8893007, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _usePointerDisplacement: 1
---- !u!114 &8775730513401092729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1043997700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56b9768557d1405eb8b627581802a70f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spriteRenderer: {fileID: 1043997702}
-  _lineRenderer: {fileID: 484353510347029232}
-  _triangleSpriteRenderer: {fileID: 5468982389403116185}
-  _distanceBetweenLineAndTarget: 6
-  _distanceBetweenTriangleAndTarget: 4
 --- !u!1 &94501218094525914
 GameObject:
   m_ObjectHideFlags: 0
@@ -1595,6 +1563,9 @@ GameObject:
   - component: {fileID: 7548483417637199963}
   - component: {fileID: 2247605228518264856}
   - component: {fileID: 2295014122163026610}
+  - component: {fileID: 3895149646928857872}
+  - component: {fileID: 3609235738332155244}
+  - component: {fileID: 5290582528112449713}
   m_Layer: 0
   m_Name: TargetedSpellCard
   m_TagString: Untagged
@@ -1662,6 +1633,49 @@ MonoBehaviour:
   _cardBack: {fileID: 4708465106417349416}
   _targetFacePoint: {fileID: 2295014121925109705}
   _collider: {fileID: 8233860704455421368}
+--- !u!114 &3895149646928857872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7548483417637199962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eced377a1464dcb8fbab967f8893007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _usePointerDisplacement: 1
+--- !u!114 &3609235738332155244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7548483417637199962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a71bce626511473482c23b8b6571c588, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 1043997702}
+  _lineRenderer: {fileID: 484353510347029232}
+  _cardState: {fileID: 5290582528112449713}
+  _triangleSpriteRenderer: {fileID: 5468982389403116185}
+  _distanceBetweenLineAndTarget: 0
+  _distanceBetweenTriangleAndTarget: 0
+--- !u!114 &5290582528112449713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7548483417637199962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 998717f91ac4430884968e121a402510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7548483417774098725
 GameObject:
   m_ObjectHideFlags: 0

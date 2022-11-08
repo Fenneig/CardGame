@@ -5,7 +5,8 @@ using DG.Tweening;
 using UnityEngine;
 
 namespace CardGame.Dragging
-{
+{    
+    [RequireComponent(typeof(Draggable))]
     public class DragSpellNoTarget : DraggingActions
     {
         [SerializeField] private CardsAndCreaturesVisualState _state;

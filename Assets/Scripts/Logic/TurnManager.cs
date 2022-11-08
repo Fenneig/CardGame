@@ -11,8 +11,6 @@ namespace CardGame.Logic
     {
         [SerializeField] private RopeTimer _timer;
 
-        public static TurnManager Instance;
-
         private Player _whoseTurn;
 
         public Player WhoseTurn
@@ -34,6 +32,8 @@ namespace CardGame.Logic
             }
         }
 
+        public static TurnManager Instance;
+
         private void Awake()
         {
             Instance = this;
@@ -41,7 +41,7 @@ namespace CardGame.Logic
 
         private void Start()
         {
-            OnGameStart();
+           //TODO entry point OnGameStart();
         }
 
         private void OnGameStart()

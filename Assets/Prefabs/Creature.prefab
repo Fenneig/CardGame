@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 955270023}
   - component: {fileID: 955270022}
   - component: {fileID: 955270021}
-  - component: {fileID: 955270020}
-  - component: {fileID: 955270019}
   m_Layer: 0
   m_Name: Target
   m_TagString: Untagged
@@ -117,36 +115,6 @@ MonoBehaviour:
   _targetScale: 3.5
   _previewGameObject: {fileID: 8127756670374820618}
   _activateInAwake: 1
---- !u!114 &955270020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 955270017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8eced377a1464dcb8fbab967f8893007, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _usePointerDisplacement: 1
---- !u!114 &955270019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 955270017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56b9768557d1405eb8b627581802a70f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spriteRenderer: {fileID: 955270023}
-  _lineRenderer: {fileID: 986564327}
-  _triangleSpriteRenderer: {fileID: 1068680151}
-  _distanceBetweenLineAndTarget: 6
-  _distanceBetweenTriangleAndTarget: 4
 --- !u!1 &986564325
 GameObject:
   m_ObjectHideFlags: 0
@@ -2681,6 +2649,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8127756672084506622}
   - component: {fileID: 6467951025256945202}
+  - component: {fileID: 3436486027624837286}
+  - component: {fileID: 3065411172146543549}
+  - component: {fileID: 2876254294231511425}
+  - component: {fileID: 2083561894407348604}
   m_Layer: 0
   m_Name: Creature
   m_TagString: Untagged
@@ -2723,6 +2695,62 @@ MonoBehaviour:
   _attackText: {fileID: 194867578912732194}
   _graphicImage: {fileID: 8127756671901127761}
   _glowImage: {fileID: 5819024158258273078}
+--- !u!114 &3436486027624837286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8127756672084506623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 998717f91ac4430884968e121a402510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3065411172146543549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8127756672084506623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eced377a1464dcb8fbab967f8893007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _usePointerDisplacement: 1
+--- !u!114 &2876254294231511425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8127756672084506623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 713591c4674c41e384d93de07975b584, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 955270023}
+  _lineRenderer: {fileID: 986564327}
+  _state: {fileID: 3436486027624837286}
+  _triangleSpriteRenderer: {fileID: 1068680151}
+  _manager: {fileID: 6467951025256945202}
+  _distanceBetweenLineAndTarget: 4
+  _distanceBetweenTriangleAndTarget: 6
+--- !u!114 &2083561894407348604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8127756672084506623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 998717f91ac4430884968e121a402510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8127756672121916534
 GameObject:
   m_ObjectHideFlags: 0

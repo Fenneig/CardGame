@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace CardGame.Dragging
 {
+    [RequireComponent(typeof(Draggable))]
     public class DragHeroPowerAction : DraggingActions
     {
         [SerializeField] private TargetingOptions _options;

@@ -1920,6 +1920,9 @@ GameObject:
   - component: {fileID: 65476068585311989}
   - component: {fileID: 6859678974942790186}
   - component: {fileID: 2055038047}
+  - component: {fileID: 9136417225078945263}
+  - component: {fileID: 1337509262541168974}
+  - component: {fileID: 156181333096197272}
   m_Layer: 0
   m_Name: SpellCard
   m_TagString: Untagged
@@ -2016,6 +2019,44 @@ MonoBehaviour:
   _cardBack: {fileID: 6813474813641141701}
   _targetFacePoint: {fileID: 195868964}
   _collider: {fileID: 8581642640823050562}
+--- !u!114 &9136417225078945263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8581642640179887799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9abfcbf1b884b21b7400543fda32a8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _state: {fileID: 156181333096197272}
+--- !u!114 &1337509262541168974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8581642640179887799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eced377a1464dcb8fbab967f8893007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _usePointerDisplacement: 1
+--- !u!114 &156181333096197272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8581642640179887799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 998717f91ac4430884968e121a402510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8581642640231390495
 GameObject:
   m_ObjectHideFlags: 0

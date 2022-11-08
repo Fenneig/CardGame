@@ -9,7 +9,6 @@ namespace CardGame.Dragging
         public abstract void OnStartDrag();
         public abstract void OnEndDrag();
         public abstract void OnDraggingInUpdate();
-
         public virtual bool CanDrag => GlobalSettings.Instance.CanControlThisPlayer(PlayerOwner);
         public abstract bool DragSuccess();
 

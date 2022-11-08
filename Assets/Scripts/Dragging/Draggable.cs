@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace CardGame.Dragging
 {
-    [RequireComponent(typeof(DraggingActions))]
     public class Draggable : MonoBehaviour
     {
         [SerializeField] [Tooltip("With turn off this parameter mouse will stay on the center of the card")] private bool _usePointerDisplacement = true;

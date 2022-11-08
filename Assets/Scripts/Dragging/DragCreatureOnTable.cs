@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace CardGame.Dragging
 {
+    [RequireComponent(typeof(Draggable))]
     public class DragCreatureOnTable : DraggingActions
     {
         [SerializeField] private CardsAndCreaturesVisualState _state;

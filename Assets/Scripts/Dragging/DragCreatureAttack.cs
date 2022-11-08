@@ -1,11 +1,11 @@
 ﻿using CardGame.Logic;
 using CardGame.Visual;
 using CardGame.Visual.CardVisual;
-using TMPro.EditorUtilities;
 using UnityEngine;
 
 namespace CardGame.Dragging
 {
+    [RequireComponent(typeof(Draggable))]
     public class DragCreatureAttack : DraggingActions
     {
         [SerializeField] private SpriteRenderer _spriteRenderer;

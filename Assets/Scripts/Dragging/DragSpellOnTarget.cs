@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace CardGame.Dragging
 {
+    [RequireComponent(typeof(Draggable))]
     public class DragSpellOnTarget : DraggingActions
     {
         [SerializeField] private SpriteRenderer _spriteRenderer;
