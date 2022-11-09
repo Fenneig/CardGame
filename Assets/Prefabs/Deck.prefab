@@ -275,6 +275,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4287786041872058660}
+  - component: {fileID: 4797274855343979811}
   m_Layer: 0
   m_Name: Deck
   m_TagString: Untagged
@@ -298,6 +299,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4797274855343979811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4287786041872058661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d22dd81ee514547a49ba0b0c785b1ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ownerPosition: 1
+  _heightOfOneCard: 0.012
 --- !u!1 &6201416358401462843
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,4 @@
-﻿using CardGame.UI;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace CardGame.Visual
 {
@@ -18,7 +17,6 @@ namespace CardGame.Visual
         [SerializeField] private HandVisual _handVisual;
         [SerializeField] private PlayerPortraitVisual _portrait;
         [SerializeField] private HeroPowerButton _heroPower;
-        [SerializeField] private EndTurnButton _endTurnButton;
         [SerializeField] private TableVisual _tableVisual;
         [SerializeField] private Transform _portraitPosition;
         [SerializeField] private bool _allowedToControlThisPlayer;
