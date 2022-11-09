@@ -10,9 +10,12 @@ namespace CardGame.Visual
         [SerializeField] private float _targetScale;
         [SerializeField] private GameObject _previewGameObject;
         [SerializeField] private bool _activateInAwake;
+        [SerializeField] private int _rotatePower = 10;
 
         private static HoverPreview _currentlyViewing;
 
+        private bool _canRotatePreview;
+        
         private bool _thisPreviewEnabled;
         public bool ThisPreviewEnabled
         {
@@ -55,9 +58,22 @@ namespace CardGame.Visual
             if (PreviewsAllowed && _thisPreviewEnabled) ShowPreview();
         }
 
+        private void OnMouseOver()
+        {
+            if (!_canRotatePreview) return;
+            
+            var displacementZ = -Camera.main.transform.position.z + transform.position.z;
+            var screenMousePos = Input.mousePosition;
+            screenMousePos.z = displacementZ;
+            var pointerDisplacement = -transform.position + Camera.main.ScreenToWorldPoint(screenMousePos);
+            transform.rotation = Quaternion.Euler(pointerDisplacement.y * _rotatePower, -pointerDisplacement.x * _rotatePower, pointerDisplacement.z);
+        }
+
         private void OnMouseExit()
         {
+            _canRotatePreview = false;
             OverCollider = false;
+            transform.rotation = Quaternion.identity;
             if (!PreviewingSomeCard()) StopAllPreviews();
         }
 
@@ -75,7 +91,8 @@ namespace CardGame.Visual
             _previewGameObject.transform.localPosition = VectorZero;
             _previewGameObject.transform.localScale = VectorOne;
 
-            _previewGameObject.transform.DOLocalMove(_targetPosition, 1f).SetEase(Ease.OutQuint);
+            _previewGameObject.transform.DOLocalMove(_targetPosition, 1f).SetEase(Ease.OutQuint)
+                .OnComplete(() => _canRotatePreview = true);
             _previewGameObject.transform.DOScale(_targetScale, 1f).SetEase(Ease.OutQuint);
         }
 
