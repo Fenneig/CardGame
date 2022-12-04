@@ -147,7 +147,7 @@ namespace CardGame.Dragging
             _triangleSpriteRenderer.enabled = false;
         }
 
-        public override bool DragSuccess()
+        public override bool DragSuccessful()
         {
             return true;
         }

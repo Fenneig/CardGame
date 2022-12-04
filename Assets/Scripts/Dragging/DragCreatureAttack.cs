@@ -2,6 +2,7 @@
 using CardGame.Visual;
 using CardGame.Visual.CardVisual;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 namespace CardGame.Dragging
 {
@@ -14,11 +15,11 @@ namespace CardGame.Dragging
         [SerializeField] private SpriteRenderer _triangleSpriteRenderer;
         [SerializeField] private OneCreatureManager _manager;
 
-
         [SerializeField] private float _distanceBetweenLineAndTarget;
         [SerializeField] private float _distanceBetweenTriangleAndTarget;
 
         private GameObject _target;
+        private RaycastHit[] _results = new RaycastHit[5];
 
         public override bool CanDrag => base.CanDrag && _manager.CanAttack;
 
@@ -32,14 +33,13 @@ namespace CardGame.Dragging
         public override void OnEndDrag()
         {
             _target = null;
+            
+            Physics.RaycastNonAlloc(Camera.main.transform.position, (-Camera.main.transform.position + transform.position).normalized, _results, 30f);
 
-            RaycastHit[] hits = Physics.RaycastAll(Camera.main.transform.position,
-                (-Camera.main.transform.position + transform.position).normalized, 30f);
-
-            foreach (var hit in hits)
+            foreach (var hit in _results)
             {
-                if (hit.transform.CompareTag("TopPlayer") && transform.CompareTag("BottomPlayer") ||
-                    hit.transform.CompareTag("BottomPlayer") && transform.CompareTag("TopPlayer"))
+                if (hit.transform.CompareTag("TopPlayer") && transform.CompareTag("BottomCreature") ||
+                    hit.transform.CompareTag("BottomPlayer") && transform.CompareTag("TopCreature"))
                     _target = hit.transform.gameObject;
 
                 else if (hit.transform.CompareTag("TopCreature") && transform.CompareTag("BottomCreature") ||
@@ -68,7 +68,7 @@ namespace CardGame.Dragging
 
             if (!validTarget)
             {
-                _state.State = VisualStates.BottomTable;
+                _state.State = tag.Contains("Bottom") ? VisualStates.BottomTable : VisualStates.TopTable;
                 _state.SetTableSortingOrder();
             }
 
@@ -105,7 +105,7 @@ namespace CardGame.Dragging
             }
         }
 
-        public override bool DragSuccess()
+        public override bool DragSuccessful()
         {
             return true;
         }

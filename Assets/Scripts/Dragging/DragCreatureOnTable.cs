@@ -28,7 +28,7 @@ namespace CardGame.Dragging
 
         public override void OnEndDrag()
         {
-            if (DragSuccess())
+            if (DragSuccessful())
             {
                 int tablePosition = PlayerOwner.PlayerArea.TableVisual.TablePositionForNewCreature(Camera.main
                     .ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y,
@@ -50,7 +50,7 @@ namespace CardGame.Dragging
             
         }
 
-        public override bool DragSuccess()
+        public override bool DragSuccessful()
         {
             bool tableNotFull = (PlayerOwner.Table.CreaturesOnTable.Count <= 7);
 

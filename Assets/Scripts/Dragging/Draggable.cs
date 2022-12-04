@@ -5,7 +5,9 @@ namespace CardGame.Dragging
 {
     public class Draggable : MonoBehaviour
     {
-        [SerializeField] [Tooltip("With turn off this parameter mouse will stay on the center of the card")] private bool _usePointerDisplacement = true;
+        [Tooltip("With turn off this parameter mouse will stay on the center of the card")] 
+        [SerializeField] private bool _usePointerDisplacement = true;
+
         //флаг показывающий в данный момент карта передвигается или нет
         private bool _isDragging = false;
         //расстояние от центра карты до курсора
@@ -13,9 +15,6 @@ namespace CardGame.Dragging
         //расстояние от камеры то Z координаты мыши
         private float _zDisplacement;
         private DraggingActions _draggingActions;
-
-        private static Draggable _draggingThis;
-        public static Draggable DraggingThis => _draggingThis;
 
         private void Awake()
         {

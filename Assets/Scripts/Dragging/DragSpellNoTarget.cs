@@ -22,15 +22,15 @@ namespace CardGame.Dragging
 
         public override void OnEndDrag()
         {
-            if (DragSuccess())
+            if (DragSuccessful())
             {
                 PlayerOwner.PlayASpellFromHand(GetComponent<IDHolder>().UniqueID, -1);
             }
             else
             {
                 _state.Slot = _savedHandSlot;
-                _state.State = VisualStates.BottomHand;
-                HandVisual playerHand = TurnManager.Instance.WhoseTurn.PlayerArea.HandVisual;
+                _state.State = tag.Contains("Bottom") ? VisualStates.BottomHand : VisualStates.TopHand;
+                HandVisual playerHand = PlayerOwner.PlayerArea.HandVisual;
                 Vector3 oldCardPosition = playerHand.Slots.Children[_savedHandSlot].transform.localPosition;
                 transform.DOLocalMove(oldCardPosition, 1f);
             }
@@ -40,7 +40,7 @@ namespace CardGame.Dragging
         {
         }
 
-        public override bool DragSuccess()
+        public override bool DragSuccessful()
         {
             return TableVisual.CursorOverSomeTable;
         }

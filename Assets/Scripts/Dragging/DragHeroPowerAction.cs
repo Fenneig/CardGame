@@ -22,7 +22,7 @@ namespace CardGame.Dragging
             
         }
 
-        public override bool DragSuccess()
+        public override bool DragSuccessful()
         {
             return TableVisual.CursorOverSomeTable;
         }

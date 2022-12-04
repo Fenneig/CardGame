@@ -105,7 +105,8 @@ namespace CardGame.Visual
 
         private void PlaceCreaturesOnNewSlots()
         {
-            foreach (var creature in _creaturesOnTable) creature.transform.DOLocalMoveX(
+            foreach (var creature in _creaturesOnTable)
+                creature.transform.DOLocalMoveX(
                     _slots.Children[_creaturesOnTable.IndexOf(creature)].transform.localPosition.x,
                     _creatureMoveTime);
         }
