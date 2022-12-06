@@ -21,12 +21,11 @@ namespace CardGame.Commands
 
         public override void StartCommandExecution()
         {
-            HandVisual playerhand = _player.PlayerArea.HandVisual;
+            HandVisual playerHand = _player.PlayerArea.HandVisual;
             GameObject card = IDHolder.GetGameObjectWithID(_creature.ID);
-            playerhand.RemoveCard(card);
-            GameObject.Destroy(card);
-            HoverPreview.PreviewsAllowed = true;
+            playerHand.RemoveCard(card);
             _player.PlayerArea.TableVisual.AddCreatureAtIndex(_creature.CardAsset, _id, _tablePosition);
+            card.SetActive(false);
         }
     }
 }

@@ -1,18 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using CardGame.Commands;
 using CardGame.Logic.CreatureScripts;
 using CardGame.SOAssets;
-using UnityEngine;
 
 namespace CardGame.Logic
 {
+    [Serializable]
     public class CreatureLogic : ICharacter
     {
-        [SerializeField] private Player _owner;
-        [SerializeField] private CardAsset _cardAsset;
-        [SerializeField] private CreatureEffect _effect;
-        [SerializeField] private int _uniqueCreatureID;
-        [SerializeField] private bool _frozen = false;
+        private Player _owner;
+        private CardAsset _cardAsset;
+        private CreatureEffect _effect;
+        private int _uniqueCreatureID;
+        private bool _frozen = false;
 
         private int _health;
         private int _attacksForOneTurn = 1;
@@ -59,8 +60,9 @@ namespace CardGame.Logic
             _uniqueCreatureID = IDFactory.GetUniqueID();
             if (!string.IsNullOrEmpty(cardAsset.CreatureScriptName))
             {
-                _effect = System.Activator.CreateInstance(System.Type.GetType(cardAsset.CreatureScriptName),
+                _effect = Activator.CreateInstance(System.Type.GetType(cardAsset.CreatureScriptName), 
                     new object[] {owner, this, cardAsset.SpecialCreatureAmount}) as CreatureEffect;
+                
                 _effect?.RegisterEffect();
             }
 
@@ -100,7 +102,7 @@ namespace CardGame.Logic
 
         public void AttackCreatureWithID(int uniqueCreatureID)
         {
-            CreatureLogic target = CreatureLogic.CreaturesCreatedThisGame[uniqueCreatureID];
+            CreatureLogic target = CreaturesCreatedThisGame[uniqueCreatureID];
             AttackCreature(target);
         }
     }

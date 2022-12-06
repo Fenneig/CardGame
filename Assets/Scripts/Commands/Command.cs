@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using CardGame.Visual;
 
 namespace CardGame.Commands
 {
@@ -25,10 +26,8 @@ namespace CardGame.Commands
 
         public static void CommandExecutionComplete()
         {
-            if (CommandQueue.Count > 0)
-                PlayCommandFromQueue();
-            else
-                PlayingQueue = false;
+            if (CommandQueue.Count > 0) PlayCommandFromQueue();
+            else PlayingQueue = false;
         }
 
         private static void PlayCommandFromQueue()
@@ -40,7 +39,8 @@ namespace CardGame.Commands
         public static bool CardDrawPending()
         {
             foreach (var command in CommandQueue)
-                if (command is DrawACardCommand) return true;
+                if (command is DrawACardCommand)
+                    return true;
 
             return false;
         }

@@ -16,7 +16,7 @@ namespace CardGame.Dragging
         private IDHolder _idHolder;
         private VisualStates _tempState;
 
-        public override bool CanDrag => base.CanDrag && _manager.CanBePlayedNow;
+        public override bool CanDrag => true; // base.CanDrag && _manager.CanBePlayedNow;
 
         public override void OnStartDrag()
         {
@@ -42,17 +42,17 @@ namespace CardGame.Dragging
                 HandVisual playerHand = PlayerOwner.PlayerArea.HandVisual;
                 Vector3 oldCardPosition = playerHand.Slots.Children[_savedHandSlot].transform.localPosition;
                 transform.DOLocalMove(oldCardPosition, 1f);
+
             }
         }
 
         public override void OnDraggingInUpdate()
         {
-            
         }
 
         public override bool DragSuccessful()
         {
-            bool tableNotFull = (PlayerOwner.Table.CreaturesOnTable.Count <= 7);
+            bool tableNotFull = PlayerOwner.Table.CreaturesOnTable.Count < 7;
 
             return TableVisual.CursorOverSomeTable && tableNotFull;
         }

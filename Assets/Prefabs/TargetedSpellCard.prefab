@@ -96,7 +96,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4, y: 6, z: 1}
+  m_Size: {x: 2.5, y: 2.5, z: 1}
   m_Center: {x: 0, y: 0, z: 0.1}
 --- !u!114 &4717316675663503313
 MonoBehaviour:
@@ -470,9 +470,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2295014121925109710}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.51}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1.2}
+  m_LocalScale: {x: 1, y: 1, z: 0.01}
   m_Children: []
   m_Father: {fileID: 7548483417637199963}
   m_RootOrder: 1
@@ -1566,6 +1566,7 @@ GameObject:
   - component: {fileID: 3895149646928857872}
   - component: {fileID: 3609235738332155244}
   - component: {fileID: 5290582528112449713}
+  - component: {fileID: 5139207546088732547}
   m_Layer: 0
   m_Name: TargetedSpellCard
   m_TagString: Untagged
@@ -1632,7 +1633,7 @@ MonoBehaviour:
   _cardFront: {fileID: 7548483418037868327}
   _cardBack: {fileID: 4708465106417349416}
   _targetFacePoint: {fileID: 2295014121925109705}
-  _collider: {fileID: 8233860704455421368}
+  _collider: {fileID: 5139207546088732547}
 --- !u!114 &3895149646928857872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1676,6 +1677,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 998717f91ac4430884968e121a402510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hover: {fileID: 4717316675663503313}
+  _canvas: {fileID: 7548483417435209878}
+--- !u!65 &5139207546088732547
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7548483417637199962}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.7, y: 11, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7548483417774098725
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ using CardGame.SOAssets;
 using CardGame.Visual.CardVisual;
 using DG.Tweening;
 using UnityEngine;
+using Visual;
 
 namespace CardGame.Visual
 {
@@ -68,6 +69,7 @@ namespace CardGame.Visual
             CardsAndCreaturesVisualState state = card.GetComponent<CardsAndCreaturesVisualState>();
             state.BringToFront();
             state.Slot = 0;
+            state.State = VisualStates.Transition;
 
             IDHolder id = card.AddComponent<IDHolder>();
             id.UniqueID = uniqueId;
@@ -77,12 +79,7 @@ namespace CardGame.Visual
             {
                 sequence.Append(card.transform.DOMove(_drawPreviewSpot.position,
                     GlobalSettings.Instance.CardTransitionTime));
-                
-                sequence.Insert(0f,
-                    _takeCardsOpenly
-                        ? card.transform.DORotate(Vector3.zero, GlobalSettings.Instance.CardTransitionTime)
-                        : card.transform.DORotate(new Vector3(0, 179f, 0), GlobalSettings.Instance.CardTransitionTime));
-                
+
                 sequence.AppendInterval(GlobalSettings.Instance.CardPreviewTime);
                 sequence.Append(card.transform.DOLocalMove(_slots.Children[0].transform.localPosition,
                     GlobalSettings.Instance.CardTransitionTime));
@@ -92,7 +89,12 @@ namespace CardGame.Visual
                 sequence.Append(card.transform.DOLocalMove(_slots.Children[0].transform.localPosition,
                     GlobalSettings.Instance.CardTransitionTime));
             }
-
+            
+            sequence.Insert(0f,
+                _takeCardsOpenly
+                    ? card.transform.DORotate(Vector3.zero, GlobalSettings.Instance.CardTransitionTime)
+                    : card.transform.DORotate(new Vector3(0, 179f, 0), GlobalSettings.Instance.CardTransitionTime));
+            
             sequence.OnComplete(() => ChangeLastCardStatusToInHand(cardAsset, state));
         }
 
@@ -151,6 +153,10 @@ namespace CardGame.Visual
                     dragSpell.Targets = cardAsset.Targets;
                 }
             }
+
+            OneCardManager manager = card.GetComponent<OneCardManager>();
+            manager.CardAsset = cardAsset;
+            manager.ReadCardFromAsset();
 
             return card;
         }

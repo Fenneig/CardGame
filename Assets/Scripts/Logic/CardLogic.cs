@@ -10,13 +10,10 @@ namespace CardGame.Logic
     public class CardLogic : IIdentifiable
     {
         [SerializeField] private Player _owner;
-        [SerializeField] private int _uniqueCardID;
-
         [SerializeField] private CardAsset _cardAsset;
-        [SerializeField] private GameObject _visualRepresentation;
-
-        [SerializeField] private int _maxCreaturesOnTable = 7;
-
+        [SerializeField] private int _uniqueCardID;
+        
+        private int _maxCreaturesOnTable = 7;
         private int _baseManaCost;
         private SpellEffect _effect;
         

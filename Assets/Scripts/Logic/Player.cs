@@ -74,6 +74,11 @@ namespace CardGame.Logic
             //_turnMaker = GetComponent<TurnMaker>();
         }
 
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.D)) DrawACard(true);
+        }
+
         public void OnTurnStart()
         {
             Debug.Log($"Turn start for {gameObject.name}");
@@ -107,11 +112,10 @@ namespace CardGame.Logic
                 if (_hand.CardsInHand.Count < _playerArea.HandVisual.Slots.Children.Length)
                 {
                     int indexToPlaceACard = _hand.CardsInHand.Count;
-                    CardLogic newCard = new CardLogic(_deck.Cards[0]);
-                    newCard.Owner = this;
+                    CardLogic newCard = new CardLogic(_deck.Cards[0]) {Owner = this};
                     _hand.CardsInHand.Add(newCard);
                     _deck.Cards.RemoveAt(0);
-                    new DrawACardCommand(_hand.CardsInHand[indexToPlaceACard], this, indexToPlaceACard, fast, true)
+                    new DrawACardCommand(newCard, this, indexToPlaceACard, fast, true)
                         .AddToQueue();
                 }
             }

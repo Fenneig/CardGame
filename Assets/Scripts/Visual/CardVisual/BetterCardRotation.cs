@@ -19,47 +19,38 @@ namespace CardGame.Visual.CardVisual
         [SerializeField] private Collider _collider;
 
         //Буля показывающая смотрит ли игрок на рубашку карты
-        private bool showingBack = false;
+        private bool _showingBack;
 
-        private void Update()
+
+        private void FixedUpdate()
         {
             //кидаем луч от камеры к точке перед лицом карты, если луч проходит через коллайдер значит карта находится рубашкой "вверх"
             RaycastHit[] hits;
-            var pointOfView = new Vector3(
-                Camera.main.transform.position.x + _targetFacePoint.position.x,
-                Camera.main.transform.position.y,
-                Camera.main.transform.position.z);
-            hits = Physics.RaycastAll(origin: pointOfView,
-                direction: (-pointOfView + _targetFacePoint.position).normalized,
-                maxDistance: (-pointOfView + _targetFacePoint.position).magnitude);
+
+            var pointOfView = Camera.main.transform.position;
+            hits = Physics.RaycastAll(pointOfView, 
+                (-pointOfView + _targetFacePoint.position).normalized,
+                (-pointOfView + _targetFacePoint.position).magnitude);
+            
             bool passedThroughColliderOnCard = false;
             foreach (var hit in hits)
             {
                 if (hit.collider == _collider)
                     passedThroughColliderOnCard = true;
             }
-            if (passedThroughColliderOnCard != showingBack)
-            {
-                showingBack = passedThroughColliderOnCard;
-                if (showingBack)
-                {
-                    _cardFront.gameObject.SetActive(false);
-                    _cardBack.gameObject.SetActive(true);
-                }
-                else
-                {
-                    _cardFront.gameObject.SetActive(true);
-                    _cardBack.gameObject.SetActive(false);
-                }
-            }
-        }
 
-        private void OnDrawGizmos()
-        {
-            var pointOfView = new Vector3(Camera.main.transform.position.x + _targetFacePoint.position.x,
-                Camera.main.transform.position.y,
-                Camera.main.transform.position.z);
-            Gizmos.DrawLine(pointOfView, _targetFacePoint.position);
+            if (passedThroughColliderOnCard == _showingBack) return;
+            _showingBack = passedThroughColliderOnCard;
+            if (_showingBack)
+            {
+                _cardFront.gameObject.SetActive(false);
+                _cardBack.gameObject.SetActive(true);
+            }
+            else
+            {
+                _cardFront.gameObject.SetActive(true);
+                _cardBack.gameObject.SetActive(false);
+            }
         }
     }
 }

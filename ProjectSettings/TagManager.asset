@@ -10,6 +10,8 @@ TagManager:
   - TopHand
   - BottomCard
   - TopCard
+  - TopPlayer
+  - BottomPlayer
   layers:
   - Default
   - TransparentFX

@@ -38,7 +38,7 @@ namespace CardGame.Dragging
             if (!_isDragging) return;
             
             var mousePos = MouseInWorldCoords();
-            _draggingActions.OnDraggingInUpdate();
+            
             transform.position = new Vector3(mousePos.x - _pointerDisplacement.x, mousePos.y - _pointerDisplacement.y,
                 transform.position.z);
             
@@ -47,8 +47,6 @@ namespace CardGame.Dragging
 
         private void OnMouseUp()
         {
-            if (!_isDragging) return;
-
             _isDragging = false;
             HoverPreview.PreviewsAllowed = true;
             _draggingActions.OnEndDrag();

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using CardGame.Commands;
 using CardGame.Logic;
 using CardGame.SOAssets;
@@ -6,6 +7,7 @@ using CardGame.Visual.CardVisual;
 using DG.Tweening;
 using Unity.Mathematics;
 using UnityEngine;
+using Visual;
 
 namespace CardGame.Visual
 {
@@ -33,10 +35,14 @@ namespace CardGame.Visual
         {
             RaycastHit[] hits;
 
-            hits = Physics.RaycastAll(Camera.main.ScreenPointToRay(Input.mousePosition), 30f);
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            hits = Physics.RaycastAll(ray.origin, ray.direction, 100f);
+
             bool passedThroughTableCollider = false;
             foreach (var hit in hits)
                 if (hit.collider == _collider) passedThroughTableCollider = true;
+            
             _cursorOverThisTable = passedThroughTableCollider;
         }
 
@@ -49,7 +55,7 @@ namespace CardGame.Visual
             manager.ReadCreatureFromAsset();
 
             foreach (var transform in creature.GetComponentsInChildren<Transform>())
-                transform.tag = $"{_owner} Creature";
+                transform.tag = $"{_owner}Creature";
 
             creature.transform.SetParent(_slots.transform);
 
@@ -70,12 +76,16 @@ namespace CardGame.Visual
 
         public int TablePositionForNewCreature(float mouseX)
         {
-            if (_creaturesOnTable.Count == 0 || mouseX > _slots.Children[0].transform.position.x) return 0;
-            if (mouseX < _slots.Children[_creaturesOnTable.Count - 1].transform.position.x) return _creaturesOnTable.Count;
-            for (int i = 0; i < _creaturesOnTable.Count; i++)
+            if (_creaturesOnTable.Count == 0 || mouseX > _slots.Children[0].transform.position.x) 
+                return 0;
+            
+            if (mouseX < _slots.Children[_creaturesOnTable.Count - 1].transform.position.x) 
+                return _creaturesOnTable.Count;
+            
+            for (int i = 0; i < _creaturesOnTable.Count - 1; i++)
             {
                 if (mouseX < _slots.Children[i].transform.position.x &&
-                    mouseX >= _slots.Children[i + 1].transform.position.x) return i + 1;
+                    mouseX > _slots.Children[i + 1].transform.position.x) return i + 1;
             }
             Debug.Log("Suspicious behavior. Reached end of TablePositionForNewCreature method. Returning 0");
             return 0;
@@ -96,8 +106,7 @@ namespace CardGame.Visual
         {
             float posX;
             if (_creaturesOnTable.Count > 0)
-                posX = (_slots.Children[0].transform.localPosition.x -
-                        _slots.Children[_creaturesOnTable.Count - 1].transform.localPosition.x) / 2;
+                posX = (_slots.Children[0].transform.localPosition.x - _slots.Children[_creaturesOnTable.Count - 1].transform.localPosition.x) / 2;
             else posX = 0f;
 
             _slots.gameObject.transform.DOLocalMoveX(posX, _creatureMoveTime);

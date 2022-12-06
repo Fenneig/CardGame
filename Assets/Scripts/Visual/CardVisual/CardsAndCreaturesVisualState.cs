@@ -14,8 +14,8 @@ namespace CardGame.Visual.CardVisual
 
     public class CardsAndCreaturesVisualState : MonoBehaviour
     {
-        private HoverPreview _hover;
-        private Canvas _canvas;
+        [SerializeField] private HoverPreview _hover;
+        [SerializeField] private Canvas _canvas;
         private int _topSortingOrder = 500;
         private const string TopSortingLayer = "AboveEverything";
         private const string CreaturesSortingLayer = "Creatures";
@@ -43,14 +43,6 @@ namespace CardGame.Visual.CardVisual
             }
         }
 
-        private void Awake()
-        {
-            //TODO Возможно лучше серелиализовать из инспектора
-            _hover = GetComponent<HoverPreview>();
-            if (_hover == null) _hover = GetComponentInChildren<HoverPreview>();
-            _canvas = GetComponentInChildren<Canvas>();
-        }
-
         public void BringToFront()
         {
             _canvas.sortingOrder = _topSortingOrder;
@@ -63,7 +55,7 @@ namespace CardGame.Visual.CardVisual
             _canvas.sortingLayerName = CreaturesSortingLayer;
         }
 
-        public int HandSortingOrder(int placeInHand) => (placeInHand + 1) * 10;
+        public int HandSortingOrder(int placeInHand) => (placeInHand + 1) * -10;
 
         public void SetHandSortingOrder()
         {

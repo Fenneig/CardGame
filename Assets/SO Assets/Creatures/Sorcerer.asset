@@ -15,7 +15,7 @@ MonoBehaviour:
   CharacterAsset: {fileID: 11400000, guid: 41cd548624e653a43bf5a364f2c8990c, type: 2}
   Description: This is a creature description
   CardImage: {fileID: 21300000, guid: f349069bb481f214499c43c34f326e1e, type: 3}
-  ManaCost: 1
+  ManaCost: 0
   MaxHealth: 2
   Attack: 1
   AttacksForOneTurn: 1

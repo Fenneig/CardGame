@@ -2,7 +2,6 @@
 using CardGame.Visual;
 using CardGame.Visual.CardVisual;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 namespace CardGame.Dragging
 {
@@ -19,24 +18,27 @@ namespace CardGame.Dragging
         [SerializeField] private float _distanceBetweenTriangleAndTarget;
 
         private GameObject _target;
-        private RaycastHit[] _results = new RaycastHit[5];
 
-        public override bool CanDrag => base.CanDrag && _manager.CanAttack;
+        private Vector3 _startPosition;
+
+        public override bool CanDrag => true; // base.CanDrag && _manager.CanAttack;
 
         public override void OnStartDrag()
         {
             _state.State = VisualStates.Dragging;
             _spriteRenderer.enabled = true;
             _lineRenderer.enabled = true;
+            _startPosition = transform.position;
         }
 
         public override void OnEndDrag()
         {
             _target = null;
             
-            Physics.RaycastNonAlloc(Camera.main.transform.position, (-Camera.main.transform.position + transform.position).normalized, _results, 30f);
-
-            foreach (var hit in _results)
+            var results = Physics.RaycastAll(Camera.main.transform.position,
+                (-Camera.main.transform.position + transform.position).normalized, 100f);
+            
+            foreach (var hit in results)
             {
                 if (hit.transform.CompareTag("TopPlayer") && transform.CompareTag("BottomCreature") ||
                     hit.transform.CompareTag("BottomPlayer") && transform.CompareTag("TopCreature"))
@@ -72,7 +74,7 @@ namespace CardGame.Dragging
                 _state.SetTableSortingOrder();
             }
 
-            transform.localPosition = Vector3.zero;
+            transform.position = _startPosition;
             _spriteRenderer.enabled = false;
             _lineRenderer.enabled = false;
             _triangleSpriteRenderer.enabled = false;
@@ -86,17 +88,19 @@ namespace CardGame.Dragging
             if (currentPositionFromCardToTarget.magnitude > distanceToTarget)
             {
                 var lineRendererPositions = new[]
-                    {transform.parent.position, transform.position - direction * _distanceBetweenLineAndTarget};
+                {
+                    transform.parent.position,
+                    transform.position - direction * _distanceBetweenLineAndTarget
+                };
                 _lineRenderer.SetPositions(lineRendererPositions);
                 _lineRenderer.enabled = true;
 
                 _triangleSpriteRenderer.enabled = true;
-                _triangleSpriteRenderer.transform.position =
-                    transform.position - direction * _distanceBetweenTriangleAndTarget;
+                _triangleSpriteRenderer.transform.position = transform.position - direction * _distanceBetweenTriangleAndTarget;
 
                 float rotationZ = Mathf.Atan2(currentPositionFromCardToTarget.y, currentPositionFromCardToTarget.x) *
                                   Mathf.Rad2Deg;
-                _triangleSpriteRenderer.transform.rotation = Quaternion.Euler(0, 0, rotationZ);
+                _triangleSpriteRenderer.transform.rotation = Quaternion.Euler(0, 0, rotationZ - 90);
             }
             else
             {
